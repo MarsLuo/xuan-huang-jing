@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://pxvm0ql4a2xq"]
+
+[ext_resource type="Script" uid="uid://dgofei2efm24n" path="res://MainMenu.gd" id="1_8x7nq"]
+[ext_resource type="Theme" uid="uid://owgpqj28rrgr" path="res://MainMenuTheme.tres" id="2_theme"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_8x7nq")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "玄黄经"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../LoadSaveButton")
+text = "创建存档"
+
+[node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../CreateSaveButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+text = "加载存档"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../LoadSaveButton")
+focus_neighbor_bottom = NodePath("../CreateSaveButton")
+text = "退出游戏"
